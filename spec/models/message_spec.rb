@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   describe '#create' do
     before do
-      @message = FactoryBot.build(:message) 
+      @message = FactoryBot.build(:message)
     end
 
     it 'contentとimageが存在していれば保存できること' do
@@ -30,7 +30,7 @@ RSpec.describe Message, type: :model do
     it 'roomが紐付いていないと保存できないこと' do
       @message.room = nil
       @message.valid?
-      expect(@message.erros.full_messages).to include('Room must exist')
+      expect(@message.errors.full_messages).to include('Room must exist')
     end
 
     it 'userが紐付いていないと保存できないこと' do
